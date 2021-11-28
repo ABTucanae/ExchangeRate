@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct ExchangeRateApp: App {
-    @StateObject private var currencyLookupViewModel = CurrencyLookupViewModel()
+    @StateObject private var dependencyManager = DependencyManager()
 
     var body: some Scene {
         WindowGroup {
-            CurrencyLookupView(viewModel: currencyLookupViewModel)
+            CurrencyLookupView(viewModel: dependencyManager.constructInitialViewModel())
+                .environmentObject(dependencyManager)
         }
     }
 }

@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct CurrencyLookupView: View {
+
     @ObservedObject var viewModel: CurrencyLookupViewModel
+    @EnvironmentObject var dependencyManager: DependencyManager
 
     var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: Text("Second screen"), isActive: $viewModel.navigateToComparison) { EmptyView() }
+                NavigationLink(
+                    destination: CurrencyComparisonView(viewModel: dependencyManager.constructNextViewModel(from: viewModel)),
+                    isActive: $viewModel.navigateToComparison
+                ) { EmptyView() }
 
                 List {
                     Section(header: Text("Enter Amount:")) {
