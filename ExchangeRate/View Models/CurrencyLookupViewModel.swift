@@ -9,15 +9,29 @@ import Foundation
 
 class CurrencyLookupViewModel: ObservableObject {
 
-    @Published var baseCurrencyValue = 0.0
+    @Published var currencyPresentationObjects = [CurrencyRatePresentationObject]()
+    @Published var selectionEnabled = false
+    @Published var navigateToComparison = false
     @Published var selectedCurrencies = Set<CurrencyCode>() {
         didSet {
             navigateToComparison = selectedCurrencies.count == 2
         }
     }
 
-    @Published var selectionEnabled = false
-    @Published var navigateToComparison = false
+    @Published var baseCurrencyValue = 0.0 {
+        didSet {
+            if let exchangeRates = exchangeRates {
+                currencyPresentationObjects = createCurrencyPresentationObjects(using: exchangeRates.rates)
+            }
+        }
+    }
+
+    private let apiClient: APIClientProtocol
+    private var exchangeRates: LatestExchangeRate?
+
+    init(apiClient: APIClientProtocol = APIClient()) {
+        self.apiClient = apiClient
+    }
 
     func codeIsSelected(code: CurrencyCode) -> Bool {
         selectedCurrencies.contains(code)
@@ -38,5 +52,27 @@ class CurrencyLookupViewModel: ObservableObject {
     func resetSelectedState() {
         selectedCurrencies.removeAll(keepingCapacity: true)
         selectionEnabled = false
+    }
+
+    func loadExchangeRates() async {
+        guard let latestExchangeRates = await apiClient.getLatestRates() else { return }
+
+        exchangeRates = latestExchangeRates
+
+        await MainActor.run {
+            currencyPresentationObjects = createCurrencyPresentationObjects(using: latestExchangeRates.rates)
+        }
+    }
+
+    func createCurrencyPresentationObjects(using exchangeRates: [String: Double]) -> [CurrencyRatePresentationObject] {
+        return CurrencyCode.allowedCurrencies.compactMap { code in
+            let formattedCurrencyCode = formatted(code: code)
+
+            guard let exchangeRate = exchangeRates[formattedCurrencyCode] else { return nil }
+
+            let amount = baseCurrencyValue * exchangeRate
+
+            return CurrencyRatePresentationObject(currencyCode: code, title:formattedCurrencyCode, amount: amount)
+        }
     }
 }

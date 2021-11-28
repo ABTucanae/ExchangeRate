@@ -11,8 +11,7 @@ struct ExchangeRateRow: View {
 
     var selectionEnabled: Bool
     var isSelected: Bool
-    var currencyCode: String
-    var amount: Double
+    var presentationObject: CurrencyRatePresentationObject
 
     var body: some View {
         HStack {
@@ -20,18 +19,18 @@ struct ExchangeRateRow: View {
                 Image(systemName: isSelected ? "checkmark.circle" : "circle")
             }
 
-            Text(currencyCode)
+            Text(presentationObject.title)
 
             Spacer()
 
-            Text(amount, format: .currency(code: currencyCode))
+            Text(presentationObject.amount, format: .currency(code: presentationObject.currencyCode.rawValue))
         }
     }
 }
 
 struct ExchangeRateRow_Previews: PreviewProvider {
     static var previews: some View {
-        ExchangeRateRow(selectionEnabled: true, isSelected: true, currencyCode: "USD", amount: 91919)
+        ExchangeRateRow(selectionEnabled: true, isSelected: true, presentationObject: .init(currencyCode: .gbp, title: "£", amount: 100))
     }
 }
 

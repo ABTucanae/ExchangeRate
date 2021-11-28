@@ -11,9 +11,11 @@ import XCTest
 class CurrencyLookupViewModelTests: XCTestCase {
 
     var viewModel: CurrencyLookupViewModel!
+    var mockAPIClient: MockAPIClient!
 
     override func setUpWithError() throws {
-        viewModel = CurrencyLookupViewModel()
+        mockAPIClient = MockAPIClient()
+        viewModel = CurrencyLookupViewModel(apiClient: mockAPIClient)
     }
 
     func testSelected_AddCode() {
@@ -57,7 +59,7 @@ class CurrencyLookupViewModelTests: XCTestCase {
 
         XCTAssertTrue(viewModel.navigateToComparison)
     }
-    
+
     func testCodeIsSelected_True() {
         viewModel.selected(code: .gbp)
 
@@ -84,5 +86,29 @@ class CurrencyLookupViewModelTests: XCTestCase {
 
         XCTAssertTrue(viewModel.selectedCurrencies.isEmpty)
         XCTAssertFalse(viewModel.selectionEnabled)
+    }
+
+    func testLoadExchangeRates_CreatesCurrencyPresentationObjectsBasedOnResponse() async {
+        let expectedDto = LatestExchangeRate(timestamp: Date(), base: "base", date: "Date", rates: ["USD": 1.1])
+        
+        mockAPIClient.latestExchangeRate = expectedDto
+        viewModel.baseCurrencyValue = 1
+        await viewModel.loadExchangeRates()
+
+        XCTAssertEqual(viewModel.currencyPresentationObjects.count, 1)
+        XCTAssertEqual(viewModel.currencyPresentationObjects[0].amount, 1.1)
+        XCTAssertEqual(viewModel.currencyPresentationObjects[0].title, "USD")
+        XCTAssertEqual(viewModel.currencyPresentationObjects[0].currencyCode, .usd)
+    }
+
+    func testCreateCurrencyPresentationObjects() async {
+        viewModel.baseCurrencyValue = 2
+
+        let pos = viewModel.createCurrencyPresentationObjects(using: ["GBP": 100])
+
+        XCTAssertEqual(pos.count, 1)
+        XCTAssertEqual(pos[0].amount, 200)
+        XCTAssertEqual(pos[0].title, "GBP")
+        XCTAssertEqual(pos[0].currencyCode, .gbp)
     }
 }

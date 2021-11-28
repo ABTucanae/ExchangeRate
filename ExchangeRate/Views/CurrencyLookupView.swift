@@ -24,15 +24,14 @@ struct CurrencyLookupView: View {
                         header: Text("Exchange Rate Results:"),
                         footer: Text(viewModel.selectionEnabled ? "Select 2 currencies to compare" : "")
                     ) {
-                        ForEach(CurrencyCode.allowedCurrencies, id: \.self) { code in
+                        ForEach(viewModel.currencyPresentationObjects) { presentationObject in
                             ExchangeRateRow(
                                 selectionEnabled: viewModel.selectionEnabled,
-                                isSelected: viewModel.codeIsSelected(code: code),
-                                currencyCode: viewModel.formatted(code: code),
-                                amount: 0.0
+                                isSelected: viewModel.codeIsSelected(code: presentationObject.currencyCode),
+                                presentationObject: presentationObject
                             )
                             .onTapGesture {
-                                viewModel.selected(code: code)
+                                viewModel.selected(code: presentationObject.currencyCode)
                             }
                         }
                     }
@@ -43,6 +42,10 @@ struct CurrencyLookupView: View {
                     ToggleButton(value: $viewModel.selectionEnabled, enabledText: "Done", disabledText: "Compare")
                 }
                 .onAppear {
+                    Task {
+                        await viewModel.loadExchangeRates()
+                    }
+
                     viewModel.resetSelectedState()
                 }
             }
