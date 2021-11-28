@@ -14,6 +14,12 @@
 		FAD6B8B42752B88900C2802B /* ExchangeRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8B32752B88900C2802B /* ExchangeRateTests.swift */; };
 		FAD6B8BE2752B88900C2802B /* ExchangeRateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8BD2752B88900C2802B /* ExchangeRateUITests.swift */; };
 		FAD6B8C02752B88900C2802B /* ExchangeRateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8BF2752B88900C2802B /* ExchangeRateUITestsLaunchTests.swift */; };
+		FAD6B8D12752B93F00C2802B /* CurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D02752B93F00C2802B /* CurrencyCode.swift */; };
+		FAD6B8D32753BBA700C2802B /* TogglingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D22753BBA700C2802B /* TogglingButton.swift */; };
+		FAD6B8D52753BCCE00C2802B /* ExchangeRateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D42753BCCE00C2802B /* ExchangeRateRow.swift */; };
+		FAD6B8D72753C05900C2802B /* CurrencyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D62753C05900C2802B /* CurrencyInputView.swift */; };
+		FAD6B8D92753C2C300C2802B /* CurrencyLookupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D82753C2C300C2802B /* CurrencyLookupViewModel.swift */; };
+		FAD6B8DB2753CF1600C2802B /* CurrencyLookupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8DA2753CF1600C2802B /* CurrencyLookupViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,12 @@
 		FAD6B8B92752B88900C2802B /* ExchangeRateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD6B8BD2752B88900C2802B /* ExchangeRateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateUITests.swift; sourceTree = "<group>"; };
 		FAD6B8BF2752B88900C2802B /* ExchangeRateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAD6B8D02752B93F00C2802B /* CurrencyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCode.swift; sourceTree = "<group>"; };
+		FAD6B8D22753BBA700C2802B /* TogglingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglingButton.swift; sourceTree = "<group>"; };
+		FAD6B8D42753BCCE00C2802B /* ExchangeRateRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRow.swift; sourceTree = "<group>"; };
+		FAD6B8D62753C05900C2802B /* CurrencyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyInputView.swift; sourceTree = "<group>"; };
+		FAD6B8D82753C2C300C2802B /* CurrencyLookupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLookupViewModel.swift; sourceTree = "<group>"; };
+		FAD6B8DA2753CF1600C2802B /* CurrencyLookupViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLookupViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD6B8B32752B88900C2802B /* ExchangeRateTests.swift */,
+				FAD6B8DA2753CF1600C2802B /* CurrencyLookupViewModelTests.swift */,
 			);
 			path = ExchangeRateTests;
 			sourceTree = "<group>";
@@ -142,6 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				FAD6B8A42752B88800C2802B /* CurrencyLookupView.swift */,
+				FAD6B8D22753BBA700C2802B /* TogglingButton.swift */,
+				FAD6B8D42753BCCE00C2802B /* ExchangeRateRow.swift */,
+				FAD6B8D62753C05900C2802B /* CurrencyInputView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +165,7 @@
 		FAD6B8CE2752B8C200C2802B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FAD6B8D02752B93F00C2802B /* CurrencyCode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +173,7 @@
 		FAD6B8CF2752B8C600C2802B /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				FAD6B8D82753C2C300C2802B /* CurrencyLookupViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -290,7 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD6B8D12752B93F00C2802B /* CurrencyCode.swift in Sources */,
 				FAD6B8A52752B88800C2802B /* CurrencyLookupView.swift in Sources */,
+				FAD6B8D92753C2C300C2802B /* CurrencyLookupViewModel.swift in Sources */,
+				FAD6B8D32753BBA700C2802B /* TogglingButton.swift in Sources */,
+				FAD6B8D52753BCCE00C2802B /* ExchangeRateRow.swift in Sources */,
+				FAD6B8D72753C05900C2802B /* CurrencyInputView.swift in Sources */,
 				FAD6B8A32752B88800C2802B /* ExchangeRateApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD6B8B42752B88900C2802B /* ExchangeRateTests.swift in Sources */,
+				FAD6B8DB2753CF1600C2802B /* CurrencyLookupViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
