@@ -40,7 +40,7 @@ struct CurrencyLookupView: View {
                 .listStyle(.insetGrouped)
                 .navigationTitle("Exchange Rate")
                 .toolbar {
-                    TogglingButton(value: $viewModel.selectionEnabled, enabledText: "Done", disabledText: "Compare")
+                    ToggleButton(value: $viewModel.selectionEnabled, enabledText: "Done", disabledText: "Compare")
                 }
                 .onAppear {
                     viewModel.resetSelectedState()

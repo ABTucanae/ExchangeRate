@@ -15,7 +15,7 @@
 		FAD6B8BE2752B88900C2802B /* ExchangeRateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8BD2752B88900C2802B /* ExchangeRateUITests.swift */; };
 		FAD6B8C02752B88900C2802B /* ExchangeRateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8BF2752B88900C2802B /* ExchangeRateUITestsLaunchTests.swift */; };
 		FAD6B8D12752B93F00C2802B /* CurrencyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D02752B93F00C2802B /* CurrencyCode.swift */; };
-		FAD6B8D32753BBA700C2802B /* TogglingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D22753BBA700C2802B /* TogglingButton.swift */; };
+		FAD6B8D32753BBA700C2802B /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D22753BBA700C2802B /* ToggleButton.swift */; };
 		FAD6B8D52753BCCE00C2802B /* ExchangeRateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D42753BCCE00C2802B /* ExchangeRateRow.swift */; };
 		FAD6B8D72753C05900C2802B /* CurrencyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D62753C05900C2802B /* CurrencyInputView.swift */; };
 		FAD6B8D92753C2C300C2802B /* CurrencyLookupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6B8D82753C2C300C2802B /* CurrencyLookupViewModel.swift */; };
@@ -51,7 +51,7 @@
 		FAD6B8BD2752B88900C2802B /* ExchangeRateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateUITests.swift; sourceTree = "<group>"; };
 		FAD6B8BF2752B88900C2802B /* ExchangeRateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FAD6B8D02752B93F00C2802B /* CurrencyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCode.swift; sourceTree = "<group>"; };
-		FAD6B8D22753BBA700C2802B /* TogglingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglingButton.swift; sourceTree = "<group>"; };
+		FAD6B8D22753BBA700C2802B /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		FAD6B8D42753BCCE00C2802B /* ExchangeRateRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRow.swift; sourceTree = "<group>"; };
 		FAD6B8D62753C05900C2802B /* CurrencyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyInputView.swift; sourceTree = "<group>"; };
 		FAD6B8D82753C2C300C2802B /* CurrencyLookupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLookupViewModel.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD6B8A42752B88800C2802B /* CurrencyLookupView.swift */,
-				FAD6B8D22753BBA700C2802B /* TogglingButton.swift */,
+				FAD6B8D22753BBA700C2802B /* ToggleButton.swift */,
 				FAD6B8D42753BCCE00C2802B /* ExchangeRateRow.swift */,
 				FAD6B8D62753C05900C2802B /* CurrencyInputView.swift */,
 			);
@@ -311,7 +311,7 @@
 				FAD6B8D12752B93F00C2802B /* CurrencyCode.swift in Sources */,
 				FAD6B8A52752B88800C2802B /* CurrencyLookupView.swift in Sources */,
 				FAD6B8D92753C2C300C2802B /* CurrencyLookupViewModel.swift in Sources */,
-				FAD6B8D32753BBA700C2802B /* TogglingButton.swift in Sources */,
+				FAD6B8D32753BBA700C2802B /* ToggleButton.swift in Sources */,
 				FAD6B8D52753BCCE00C2802B /* ExchangeRateRow.swift in Sources */,
 				FAD6B8D72753C05900C2802B /* CurrencyInputView.swift in Sources */,
 				FAD6B8A32752B88800C2802B /* ExchangeRateApp.swift in Sources */,

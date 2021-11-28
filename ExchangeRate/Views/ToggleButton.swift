@@ -1,5 +1,5 @@
 //
-//  TogglingButton.swift
+//  ToggleButton.swift
 //  ExchangeRate
 //
 //  Created by Alex on 28/11/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TogglingButton: View {
+struct ToggleButton: View {
 
     @Binding var value: Bool
     var enabledText: String
@@ -22,8 +22,8 @@ struct TogglingButton: View {
     }
 }
 
-struct TogglingButton_Previews: PreviewProvider {
+struct ToggleButton_Previews: PreviewProvider {
     static var previews: some View {
-        TogglingButton(value: .constant(false), enabledText: "Done", disabledText: "Edit")
+        ToggleButton(value: .constant(false), enabledText: "Done", disabledText: "Edit")
     }
 }
