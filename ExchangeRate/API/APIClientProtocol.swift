@@ -8,5 +8,6 @@
 import Foundation
 
 protocol APIClientProtocol {
-    func getLatestRates() async -> LatestExchangeRate?
+    func getLatestRates() async -> LatestExchangeRates?
+    func loadHistoricalRates(for date: Date, selectedCurrencies: [CurrencyCode]) async -> HistoricalRates?
 }

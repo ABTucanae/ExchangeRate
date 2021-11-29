@@ -28,7 +28,7 @@ class CurrencyLookupViewModel: ObservableObject {
     }
 
     private let apiClient: APIClientProtocol
-    private var exchangeRates: LatestExchangeRate?
+    private var exchangeRates: LatestExchangeRates?
 
     init(apiClient: APIClientProtocol = APIClient()) {
         self.apiClient = apiClient

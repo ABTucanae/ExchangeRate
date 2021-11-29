@@ -89,9 +89,9 @@ class CurrencyLookupViewModelTests: XCTestCase {
     }
 
     func testLoadExchangeRates_CreatesCurrencyPresentationObjectsBasedOnResponse() async {
-        let expectedDto = LatestExchangeRate(timestamp: Date(), base: "base", date: "Date", rates: ["USD": 1.1])
+        let expectedDto = LatestExchangeRates(rates: ["USD": 1.1])
         
-        mockAPIClient.latestExchangeRate = expectedDto
+        mockAPIClient.latestExchangeRates = expectedDto
         viewModel.baseCurrencyValue = 1
         await viewModel.loadExchangeRates()
 
@@ -101,7 +101,7 @@ class CurrencyLookupViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.currencyPresentationObjects[0].currencyCode, .usd)
     }
 
-    func testCreateCurrencyPresentationObjects() async {
+    func testCreateCurrencyPresentationObjects() {
         viewModel.baseCurrencyValue = 2
 
         let pos = viewModel.createCurrencyPresentationObjects(using: ["GBP": 100])

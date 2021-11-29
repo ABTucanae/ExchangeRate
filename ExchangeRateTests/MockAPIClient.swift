@@ -10,9 +10,15 @@ import Foundation
 
 class MockAPIClient: APIClientProtocol {
 
-    var latestExchangeRate: LatestExchangeRate?
+    var latestExchangeRates: LatestExchangeRates?
 
-    func getLatestRates() async -> LatestExchangeRate? {
-        return latestExchangeRate
+    func getLatestRates() async -> LatestExchangeRates? {
+        return latestExchangeRates
+    }
+
+    var historicalRates: HistoricalRates?
+
+    func loadHistoricalRates(for date: Date, selectedCurrencies: [CurrencyCode]) async -> HistoricalRates? {
+        return historicalRates
     }
 }

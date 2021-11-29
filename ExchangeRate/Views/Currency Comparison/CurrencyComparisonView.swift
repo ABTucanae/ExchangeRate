@@ -9,10 +9,28 @@ import SwiftUI
 
 struct CurrencyComparisonView: View {
 
-    @ObservedObject var viewModel: CurrencyComparisonViewModel
+    @StateObject var viewModel: CurrencyComparisonViewModel
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Section(header: Text("Base currency")) {
+                Text(viewModel.baseCurrencyValue, format: .currency(code: CurrencyCode.baseCurrency.rawValue))
+            }
+
+            Section(header: Text("5 Day Comparison")) {
+                ForEach(viewModel.historicalRatesPresentationObjects) { presentationObject in
+                    CurrencyComparisonRow(presentationObject: presentationObject)
+                }
+            }
+        }
+        .listStyle(.insetGrouped)
+        .navigationTitle("Compare")
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            Task {
+                await viewModel.loadHistoricalRates()
+            }
+        }
     }
 }
 

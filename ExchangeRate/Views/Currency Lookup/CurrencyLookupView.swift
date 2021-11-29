@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CurrencyLookupView: View {
 
-    @ObservedObject var viewModel: CurrencyLookupViewModel
+    @StateObject var viewModel: CurrencyLookupViewModel
     @EnvironmentObject var dependencyManager: DependencyManager
 
     var body: some View {

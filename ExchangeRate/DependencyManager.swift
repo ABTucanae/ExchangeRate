@@ -16,6 +16,6 @@ class DependencyManager: ObservableObject {
     }
 
     func constructNextViewModel(from lookupViewModel: CurrencyLookupViewModel) -> CurrencyComparisonViewModel {
-        CurrencyComparisonViewModel(baseCurrencyValue: lookupViewModel.baseCurrencyValue, selectedCurrencies: lookupViewModel.selectedCurrencies, apiClient: apiClient)
+        CurrencyComparisonViewModel(baseCurrencyValue: lookupViewModel.baseCurrencyValue, selectedCurrencies: Array(lookupViewModel.selectedCurrencies), apiClient: apiClient)
     }
 }
